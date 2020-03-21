@@ -81,4 +81,10 @@ print '3 backticks or'
 print 'indent 4 spaces'
 
 \`\`\`
+
+otra forma de code block
+
+	estoa es otro
+	bloque de codigo
+		veamos si fuunciona
 `
