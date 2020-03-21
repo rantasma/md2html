@@ -29,6 +29,15 @@ Listas
 1. item1
 1. item1
 
-asdadasdasd
+Tables
+
+| Tables        | Are           | Cool  | otro text |
+|:-------------:|:-------------:| -----:| ----|
+| col 3 is      | right-aligned | $1600 ||
+| col 2 is   |  centered  | $12 | |
+| zebra stripes | are neat | $1 | |
+| zebra stripes2 | re neat2d| $12a | |
+| col 2 is | centered | $12 | |
+
 
 `

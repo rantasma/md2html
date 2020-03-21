@@ -9,6 +9,7 @@ export const md2html=(text:string)=>{
 	t=Tag.hr(t)
 	t=Tag.emphasis(t)
 	t=Tag.list(t)
+	t=Tag.table(t)
 
 	return t
 }
