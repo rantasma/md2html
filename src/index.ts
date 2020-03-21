@@ -5,11 +5,12 @@ export const md2html=(text:string)=>{
 
 	var t=text;
 
-	t=Tag.H(t)
 	t=Tag.hr(t)
-	t=Tag.emphasis(t)
 	t=Tag.list(t)
 	t=Tag.table(t)
+	t=Tag.H(t)
+	t=Tag.paragraph(t)
+	t=Tag.emphasis(t)
 	t=Tag.anchors(t)
 
 	return t

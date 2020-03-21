@@ -4,6 +4,7 @@ import {emphasis} from './emphasis'
 import {list} from './Lists/index'
 import {table} from './tables/index'
 import {anchors} from './anchor'
+import {paragraph} from './paragraph'
 
 export const Tag={
 		H,
@@ -11,5 +12,6 @@ export const Tag={
 		emphasis,
 		list,
 		table,
-		anchors
+		anchors,
+		paragraph
 }
