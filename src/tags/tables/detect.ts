@@ -6,7 +6,7 @@ export const open=(text)=>{
 	var align;
 
 	text=text.replace(patt,(match,p1,p2,p3,original)=>{
-		var result='<table>\n'
+		var result='\n<table>\n'
 
 		var h=header(
 			match
@@ -26,6 +26,6 @@ export const open=(text)=>{
 
 export const close=(text:string)=>{
 	var patt=new RegExp('(\\|.*\\|)\n{2}','g')
-	text=text.replace(patt,`$1 \n </tbody>\n</table>\n\n`)
+	text=text.replace(patt,`$1\n</tbody>\n</table>\n`)
 	return text
 }

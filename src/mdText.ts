@@ -11,6 +11,8 @@ Horizontal rule
 ======
 -----
 
+emphasis
+
 Emphasis, aka italics, with *asterisks* or _underscores_.
 
 Strong emphasis, aka bold, with **asterisks** or __underscores__.
@@ -18,6 +20,19 @@ Strong emphasis, aka bold, with **asterisks** or __underscores__.
 Combined emphasis with **asterisks and _underscores_**.
 
 Strikethrough uses two tildes. ~~Scratch this.~~
+
+----
+
+new paragraph (2 new lines)
+
+estoaa
+aaaes 1n
+solo parrafo
+
+esto es un parrafoaa
+diferenteaa
+
+----
 
 Listas
 
@@ -29,6 +44,8 @@ Listas
 1. item1
 1. item1
 
+----
+
 Tables
 
 | Tables        | Are           | Cool  | otro text |
@@ -39,7 +56,10 @@ Tables
 | zebra stripes2 | re neat2d| $12a | |
 | col 2 is | centered | $12 | |
 
-Anchors
+----
+
+	Anchors
+
 
 [I'm an inline-style link](https://www.google.com)
 
