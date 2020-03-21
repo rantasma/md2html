@@ -11,6 +11,7 @@ export const md2html=(text:string)=>{
 	t=Tag.H(t)
 	t=Tag.paragraph(t)
 	t=Tag.emphasis(t)
+	t=Tag.inlineCode(t)
 	t=Tag.anchors(t)
 
 	return t

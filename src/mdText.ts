@@ -69,5 +69,9 @@ Tables
 
 [I'm an inline-style link](https://www.google.com)
 
+----
 
+Code
+
+inline code \`esto es un codigo\`
 `
