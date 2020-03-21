@@ -1,0 +1,19 @@
+{
+	"compileOnSave": true,
+	"compilerOptions": {
+	 "outDir": "./js/",
+	  "sourceMap": true,
+	  "noImplicitAny": true,
+	  "module": "es6",
+	  "target": "es5",
+	  "watch":true,
+      "rootDir": "./src"
+  },
+	    "include": [
+        "*/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ]
+}
