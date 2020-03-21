@@ -39,5 +39,15 @@ Tables
 | zebra stripes2 | re neat2d| $12a | |
 | col 2 is | centered | $12 | |
 
+Anchors
+
+[I'm an inline-style link](https://www.google.com)
+
+[I'm an inline-style link](https://www.google.com)
+
+[I'm an inline-style link](https://www.google.com)
+
+[I'm an inline-style link](https://www.google.com)
+
 
 `
