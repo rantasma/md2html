@@ -10,6 +10,7 @@ export const md2html=(text:string)=>{
 	t=Tag.emphasis(t)
 	t=Tag.list(t)
 	t=Tag.table(t)
+	t=Tag.anchors(t)
 
 	return t
 }
