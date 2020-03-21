@@ -1,5 +1,5 @@
 export const H:Function=(text:string)=>{
-	var patt=new RegExp('(#+)\\s(.+)\\n','g');
+	var patt=new RegExp('^(#+)\\s(.+)\\n','gm');
 	return text.replace(patt,(match:any,p1:string, p2:string, offset:number, original:string)=>{
 
 		var hType=p1.length

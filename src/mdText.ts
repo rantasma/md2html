@@ -74,4 +74,11 @@ Tables
 Code
 
 inline code \`esto es un codigo\`
+
+\`\`\`
+# code block
+print '3 backticks or'
+print 'indent 4 spaces'
+
+\`\`\`
 `

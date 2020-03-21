@@ -6,6 +6,7 @@ import {table} from './tables/index'
 import {anchors} from './anchor'
 import {paragraph} from './paragraph'
 import {inlineCode} from './inlineCode'
+import {codeBlock} from './codeBlock'
 
 export const Tag={
 		H,
@@ -15,5 +16,6 @@ export const Tag={
 		table,
 		anchors,
 		paragraph,
-		inlineCode
+		inlineCode,
+		codeBlock
 }
