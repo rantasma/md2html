@@ -17,6 +17,12 @@ export const row=(text:string,align)=>{
 			var alignSide=handleAlign(align[index])
 		    result+=`<td align="${alignSide}">${substr}</td>\n`
 		});
+		if (data.length < align.length) {
+			for (let i = 0; i < align.length - data.length; i++) {
+				var alignSide=handleAlign(align[data.length+i])
+		    	result+=`<td align="${alignSide}"></td>\n`
+			}
+		}
 		result+='</tr>'
 		return result
 	})
