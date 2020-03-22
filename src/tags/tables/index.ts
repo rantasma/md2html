@@ -2,6 +2,7 @@ import {open,close} from './detect'
 import {row} from './row'
 
 export const table=(text:string)=>{
+	try{
 		var data=open(text)
 
 		var align=data.align
@@ -9,4 +10,9 @@ export const table=(text:string)=>{
 		text=close(text)
 		text=row(text,align)
 		return text
+
+	}catch{
+		return text
+	}
+
 }

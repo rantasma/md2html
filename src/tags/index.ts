@@ -11,10 +11,10 @@ import {images} from './images'
 import {blockquote} from './blockquote'
 
 export const Tag=[
-	hr,
 	list,
 	table,
 	codeBlock,
+	hr,
 	blockquote,
 	H,
 	images,
