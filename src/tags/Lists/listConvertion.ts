@@ -37,7 +37,6 @@ export const list=(text:string,type:string,lipatt:any)=>{
 		}else if(onList && lipatt.test(line)){
 
 			line=line.replace(lipatt,'<li>$1</li>')
-			console.log(line,'li');
 
 		}else if(onList){
 
