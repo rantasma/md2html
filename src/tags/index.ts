@@ -10,16 +10,16 @@ import {codeBlock} from './codeBlock'
 import {images} from './images'
 import {blockquote} from './blockquote'
 
-export const Tag={
-		H,
-		hr,
-		emphasis,
-		list,
-		table,
-		anchors,
-		paragraph,
-		inlineCode,
-		codeBlock,
-		images,
-		blockquote
-}
+export const Tag=[
+	hr,
+	list,
+	table,
+	codeBlock,
+	blockquote,
+	H,
+	images,
+	paragraph,
+	inlineCode,
+	emphasis,
+	anchors,
+]
