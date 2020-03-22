@@ -12,12 +12,12 @@ export const blockquote=(text:string)=>{
 
 		if(openPatt.test(line)&&!tagIsOpen){
 
-			line= `\n<bloquequote>\n${line.replace(/^>\s/,'')}`
+			line= `\n<blockquote>\n${line.replace(/^>\s/,'')}`
 			tagIsOpen=true
 
 		}else if( line=='' && tagIsOpen){
 
-			line= `\n</bloquequote>`
+			line= `\n</blockquote>`
 			tagIsOpen=false
 
 		}else if(tagIsOpen && line != ''){
