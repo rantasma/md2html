@@ -1,9 +1,13 @@
 import {text} from './mdText'
 import {Tag} from './tags/index'
+import {linkVariables} from './misselaneous/linkVariables'
 
 export const md2html=(text:string)=>{
 
-	var t=text;
+	var data=linkVariables(text)
+
+	var t=data.text;
+	var variables=data.variables
 
 	t=Tag.hr(t)
 	t=Tag.list(t)
@@ -11,11 +15,11 @@ export const md2html=(text:string)=>{
 	t=Tag.codeBlock(t)
 	t=Tag.blockquote(t)
 	t=Tag.H(t)
-	t=Tag.images(t)
+	t=Tag.images(t,variables)
 	t=Tag.paragraph(t)
 	t=Tag.inlineCode(t)
 	t=Tag.emphasis(t)
-	t=Tag.anchors(t)
+	t=Tag.anchors(t,variables)
 
 	return t
 }
