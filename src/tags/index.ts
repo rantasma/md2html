@@ -8,6 +8,7 @@ import {paragraph} from './paragraph'
 import {inlineCode} from './inlineCode'
 import {codeBlock} from './codeBlock'
 import {images} from './images'
+import {blockquote} from './blockquote'
 
 export const Tag={
 		H,
@@ -19,5 +20,6 @@ export const Tag={
 		paragraph,
 		inlineCode,
 		codeBlock,
-		images
+		images,
+		blockquote
 }

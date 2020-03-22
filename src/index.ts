@@ -9,6 +9,7 @@ export const md2html=(text:string)=>{
 	t=Tag.list(t)
 	t=Tag.table(t)
 	t=Tag.codeBlock(t)
+	t=Tag.blockquote(t)
 	t=Tag.H(t)
 	t=Tag.images(t)
 	t=Tag.paragraph(t)
