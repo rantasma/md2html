@@ -1,9 +1,8 @@
-import {ul} from './ul'
-import {ol} from './ol'
+import {list as listConvertion} from './listConvertion'
 
 export const list=(text:string)=>{
-	text=ul(text)
-	text=ol(text)
+	text=listConvertion(text,'ul','[-\\*]\\s(.*)')
+	text=listConvertion(text,'ol','\\d[\\.\\)]\\s(.*)')
 
 	return text
 }
