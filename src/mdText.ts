@@ -6,6 +6,14 @@ export var text:string=`
 ##### H5
 ###### H6
 
+Alternative h titles
+
+esto es un h1
+====
+
+esto es un h2
+----
+
 Horizontal rule
 
 ======
