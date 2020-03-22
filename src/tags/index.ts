@@ -13,13 +13,13 @@ import {blockquote} from './blockquote'
 export const Tag=[
 	list,
 	table,
+	blockquote,
 	codeBlock,
 	hr,
-	blockquote,
 	H,
-	images,
 	paragraph,
 	inlineCode,
 	emphasis,
+	images,
 	anchors,
 ]
