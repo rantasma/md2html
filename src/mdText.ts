@@ -39,10 +39,32 @@ Listas
 - asdasdasd
 - second import
 - tercer item
+	- embed list
+	- embed list
+		* embed embed list
+		* embed embed list
+		* embed embed list
+
+* item listab
+* item listab
+* item listab
+	- item lista b embed
+	- item lista b embed
+	- item lista b embed
 
 1. item1
 1. item1
 1. item1
+	1. item embed a
+	1. item embed a
+	1. item embed a
+
+1) item ol b
+1) item ol b
+1) item ol b
+	1) embed item ol b
+	1) embed item ol b
+	1) embed item ol b
 
 ----
 
