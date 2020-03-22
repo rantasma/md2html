@@ -104,4 +104,10 @@ otra forma de code block
 
 ![una imagen](https://i.ytimg.com/vi/4QJS9LcB66g/maxresdefault.jpg)
 
+![imagen con link variable][vara]
+
+[linkd e variable][vara]
+
+
+[vara]: https://i.ytimg.com/vi/4QJS9LcB66g/maxresdefault.jpg
 `
