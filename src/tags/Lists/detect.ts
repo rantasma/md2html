@@ -1,12 +1,12 @@
 export const open=(text:string,type)=>{
 	var open;
 	if (type == 'ul') {
-		open=new RegExp('(\n-\\s.*\n)','')
+		open=new RegExp('(\n[-\\*]\\s.*\n[-\\*])','g')
 	}else if(type == 'ol'){
-		open=new RegExp('(\n\\d+\.\\s.*\n)','')
+		open=new RegExp('(\n\\d+[\\.\\)]\\s.*\n\\d+[\\.\\)])','g')
 	}
 
-	text=text.replace(open,`\n<${type}>$1`)
+	text=text.replace(open,`\n<${type}>\n$1`)
 
 	return text
 }
@@ -14,13 +14,13 @@ export const close=(text,type)=>{
 	var types;
 	if (type == 'ul') {
 		types={
-			a:new RegExp('(\n-\\s.*\n$)'),
-			b:new RegExp('(\n-\\s.*\n)\n')
+			a:new RegExp('(\n[-\\*]\\s.*\n\n)','g'),
+			b:new RegExp('(\n[-\\*]\\s.*\n)\n','g')
 		}
 	}else if (type == 'ol') {
 		types={
-			a:new RegExp('(\n\\d+\\.\\s.*\n$)'),
-			b:new RegExp('(\n\\d\\.\\s.*\n)\n')
+			a:new RegExp('(\n\\d+[\\.\\)]\\s.*\n$)','g'),
+			b:new RegExp('(\n\\d[\\.\\)]\\s.*\n)\n','g')
 		}
 	}
 
@@ -31,7 +31,7 @@ export const close=(text,type)=>{
 	var closeIndex=close_a||close_b;
 
 	// closeIndex=closeIndex.length
-	text=text.replace(types[close],`$1</${type}>\n`)
+	text=text.replace(types[close],`$1\n</${type}>\n\n`)
 
 	return text
 }

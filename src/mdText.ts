@@ -40,9 +40,17 @@ Listas
 - second import
 - tercer item
 
+* item listab
+* item listab
+* item listab
+
 1. item1
 1. item1
 1. item1
+
+1) item ol b
+1) item ol b
+1) item ol b
 
 ----
 
