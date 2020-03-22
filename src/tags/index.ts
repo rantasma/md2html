@@ -7,6 +7,7 @@ import {anchors} from './anchor'
 import {paragraph} from './paragraph'
 import {inlineCode} from './inlineCode'
 import {codeBlock} from './codeBlock'
+import {images} from './images'
 
 export const Tag={
 		H,
@@ -17,5 +18,6 @@ export const Tag={
 		anchors,
 		paragraph,
 		inlineCode,
-		codeBlock
+		codeBlock,
+		images
 }

@@ -87,4 +87,13 @@ otra forma de code block
 	estoa es otro
 	bloque de codigo
 		veamos si fuunciona
+
+----
+
+<div><p> **rrough html test** </p></div>
+
+----
+
+![una imagen](https://i.ytimg.com/vi/4QJS9LcB66g/maxresdefault.jpg)
+
 `

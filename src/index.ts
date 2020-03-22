@@ -10,6 +10,7 @@ export const md2html=(text:string)=>{
 	t=Tag.table(t)
 	t=Tag.codeBlock(t)
 	t=Tag.H(t)
+	t=Tag.images(t)
 	t=Tag.paragraph(t)
 	t=Tag.inlineCode(t)
 	t=Tag.emphasis(t)
