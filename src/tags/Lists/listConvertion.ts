@@ -1,9 +1,9 @@
 import {openList} from './openList'
 
-export const list=(text:string,type:string,lipatt:any)=>{
-	text=openList(text,type,lipatt);
+export const list=(text:string,type:string,lipatt:any,altLiPatt?:string)=>{
+	text=openList(text,type,lipatt,altLiPatt);
 
-	lipatt= new RegExp(`^\\t*\\s*${lipatt}`,'')
+	lipatt= new RegExp(`^[\\t*\\s*]*${lipatt}`,'')
 	var ulPatt=new RegExp(`^<${type}>$`)
 	var endList=new RegExp('^$')
 
@@ -23,14 +23,6 @@ export const list=(text:string,type:string,lipatt:any)=>{
 			currentListOpen++
 
 		}else if(endList.test(line) && onList){
-
-			var closeTags=''
-
-			for (let ulIndex = 0; ulIndex < currentListOpen; ulIndex++) {
-
-				closeTags+=`</${type}>\n`
-			}
-			line=closeTags
 			onList=false
 			currentListOpen=0
 

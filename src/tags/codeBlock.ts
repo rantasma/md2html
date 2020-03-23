@@ -9,8 +9,8 @@ const codeBlock_a=(text:string)=>{
 	var splitData=text.split('\n')
 	var codeBlockIsOpen=false;
 
-	const openPatt=new RegExp('^`{3}','m');
-	const closePatt=new RegExp('^`{3}');
+	const openPatt=new RegExp('^`{3}(.*)','m');
+	const closePatt=new RegExp('^`{3}(.*)','m');
 	var newText=''
 
 
@@ -18,11 +18,11 @@ const codeBlock_a=(text:string)=>{
 		var line = splitData[i];
 		if (openPatt.test(line) && !codeBlockIsOpen) {
 
-			line='<pre>'
+			line=line.replace(openPatt,'<pre>$1')
 			codeBlockIsOpen=true
 		}else if(closePatt.test(line)){
 
-			line='</pre>'
+			line=line.replace(openPatt,'</pre>$1')
 			codeBlockIsOpen=false
 
 		}else if(codeBlockIsOpen){
@@ -31,6 +31,7 @@ const codeBlock_a=(text:string)=>{
 		newText+=line+'\n'
 	}
 	return newText
+
 }
 
 const codeBlock_b=(text:string)=>{
