@@ -261,17 +261,25 @@ otra forma de code block
 
 	<script type="text/javascript">
 
+		var converter=new Md2Html(text)
+
 	//custom filter for highlight languaje specification
-		Md2html.add((text)=>{
-			text=text.replace(/<pre>(.*)/g,'<pre class="$1">')
-			console.log("crash");
-			return text
+		converter.addFilter({
+			name:'hightlight-class',
+			filter:(text)=>{
+				text=text.replace(/<pre>(.*)/g,'<pre class="$1">')
+				console.log("crash");
+				return text
+			}
 		})
-		var mdtext=Md2html.getHtml(text)
+
+
+		var text=converter.toHtml()
+		console.log(text);
 
 
 		window.onload=()=>{
-			document.querySelector('body').innerHTML+=mdtext
+			document.querySelector('body').innerHTML+=text
 
 			//enable hightlight
 			  document.querySelectorAll('pre').forEach((block) => {
