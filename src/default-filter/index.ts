@@ -11,6 +11,7 @@ import {inlineCode} from './inlineCode'
 import {codeBlock} from './codeBlock'
 import {images} from './images'
 import {blockquote} from './blockquote'
+import {variables} from './variables'
 
 export const DefaultFilters:Array<Filter>=[
 	{
@@ -62,6 +63,11 @@ export const DefaultFilters:Array<Filter>=[
 		name:'images',
 		priority:9,
 		filter:images,
+	},
+	{
+		name:'variables',
+		priority:10,
+		filter:variables
 	},
 	// {
 	// 	name:'anchors',
