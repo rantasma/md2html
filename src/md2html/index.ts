@@ -6,7 +6,6 @@ import {IgnoreRanges as Ranges} from './../ignoreRanges/index'
 import {DefaultFilters} from './../default-filter/index'
 import {defaultIgnoreMethods} from './../default-ignoreRanges/index'
 import {Variables} from './../variables/index'
-// import {linkVariables} from './misselaneous/linkVariables'
 
 
 export class Md2Html {
@@ -59,7 +58,7 @@ export class Md2Html {
 		return this.htmlText
 	}
 
-	addFilter(filter:Filter):void{
+	addFilter(filter:Filter):boolean{
 
 		filter.priority=filter.priority || this.filters.length
 
@@ -69,6 +68,8 @@ export class Md2Html {
 
 		this.updateFilterPriority(filter.priority)
 		this.filters.push(filter)
+
+		return true
 	}
 
 	removeFilter(filterName:string):void{
@@ -79,7 +80,7 @@ export class Md2Html {
 		})
 	}
 
-	changePriority(filterName:string,newPriority:number){
+	changePriority(filterName:string,newPriority:number):boolean{
 
 		if(!this.validateNewPriority(newPriority)){
 			return false
@@ -97,9 +98,13 @@ export class Md2Html {
 		}
 
 		this.filters[filterName].priority=newPriority
+
+		return true
 	}
 
-	updateFilterPriority(from:number=0,to:number=this.filters.length,direction:boolean=true){
+	private updateFilterPriority(
+		from:number=0, to:number=this.filters.length, direction:boolean=true
+	):void{
 
 		for (let i = from; i <= to; i++) {
 
@@ -115,7 +120,7 @@ export class Md2Html {
 		}
 	}
 
-	validateNewPriority(newPriority:number){
+	private validateNewPriority(newPriority:number):boolean{
 
 		if (newPriority < 0 || newPriority > this.filters.length) {
 
