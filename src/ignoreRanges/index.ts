@@ -35,30 +35,68 @@ export class IgnoreRanges {
 		})
 	}
 
-	update(offset:number,length:number){
+	update(indexPosition:number,offsetLength:number){
 
+		this.ranges.forEach(section =>{
+			var ranges=section.ranges
+
+			ranges.forEach(range=>{
+
+				for (const key in range) {
+
+					if (range.hasOwnProperty(key)) {
+
+						var value:number = range[key];
+
+						if (value > indexPosition) {
+
+							value+=offsetLength
+						}
+					}
+				}
+			})
+		})
 	}
 
-	analize(matchPosition:number,matchLength:number){
+	analizeBySection(range:RangeSection,matchPosition:number,matchLength:number){
+
+		var ranges=range.ranges
+
+		for (let u = 0; u < ranges.length; u++) {
+			const range = ranges[u];
+
+			if (matchPosition > range.from && matchPosition+matchLength < range.to) {
+					return false;
+		    }else{
+					return true;
+					break
+			}
+		}
+	}
+
+	analizeBySectionName(sectionName:string,matchPosition:number,matchLength:number){
+		const range = [...this.ranges].filter(method=>{
+			return method.name == sectionName
+		})[0]
+
+		return this.analizeBySection(range,matchPosition,matchLength)
+	}
+
+	analizeAll(matchPosition:number,matchLength:number){
 		var test=[]
 
 		for (let i = 0; i < this.ranges.length; i++) {
-			const ranges = this.ranges[i].ranges;
 
-			var ignore:any={name:this.ranges[i].name}
+			var range=this.ranges[i]
 
-			for (let u = 0; u < ranges.length; u++) {
-				const range = ranges[u];
-
-				if (matchPosition > range.from && matchPosition+matchLength < range.to) {
-						ignore.ignore=false;
-			    }else{
-						ignore.ignore=true;
-						break
-				}
+			if(this.analizeBySection(range,matchPosition,matchLength)){
+				test.push({
+					name:range.name,
+					ignore:true
+				})
 			}
-			test.push(ignore)
 		}
 		return test
 	}
+
 }
