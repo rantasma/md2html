@@ -66,8 +66,9 @@ export class Md2Html {
 			return false
 		}
 
-		this.updateFilterPriority(filter.priority)
 		this.filters.push(filter)
+		this.updateFilterPriority(filter.priority)
+		console.log(this.filters);
 
 		return true
 	}
@@ -106,17 +107,19 @@ export class Md2Html {
 		from:number=0, to:number=this.filters.length, direction:boolean=true
 	):void{
 
+		console.log('from',from);
+		console.log('to',to);
 		for (let i = from; i <= to; i++) {
 
 			const filter = this.filters[i];
 
-			if (direction) {
-
-				filter.priority++
-			}else{
-
-				filter.priority--
-			}
+			if(direction) {}
+			//
+			// 	filter.priority++
+			// }else{
+			//
+			// 	filter.priority--
+			// }
 		}
 	}
 
