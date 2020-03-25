@@ -60,15 +60,15 @@ export class Md2Html {
 
 	addFilter(filter:Filter):boolean{
 
-		filter.priority=filter.priority || this.filters.length
+		filter.priority=filter.priority == undefined ? this.filters.length :filter.priority
 
 		if(!this.validateNewPriority(filter.priority)){
 			return false
 		}
 
-		this.filters.push(filter)
 		this.updateFilterPriority(filter.priority)
-		console.log(this.filters);
+		this.filters.push(filter)
+		this.sortFilters()
 
 		return true
 	}
@@ -86,41 +86,58 @@ export class Md2Html {
 		if(!this.validateNewPriority(newPriority)){
 			return false
 		}
+		var targetIndex=null
+		var targetFilter=[...this.filters].filter((filter,i)=>{
+			if (filter.name==filterName) {
+				targetIndex=1
+				return  true
+			}
+		})[0]
 
-		var targetFilter=this.filters[filterName]
 
 		if (targetFilter.priority > newPriority) {
 
-			this.updateFilterPriority(newPriority,targetFilter.priority)
+			this.updateFilterPriority(newPriority,targetFilter.priority,true)
 
 		}else{
 
 			this.updateFilterPriority(targetFilter.priority,newPriority,false)
 		}
 
-		this.filters[filterName].priority=newPriority
+		this.filters.map(filter=>{
+
+			if (filter.name==filterName) {
+				filter.priority=newPriority
+			}
+			return filter
+		})
+
+		this.sortFilters()
 
 		return true
 	}
 
+	private sortFilters(){
+		this.filters.sort((a,b)=>{
+			return a.priority-b.priority
+		})
+	}
+
 	private updateFilterPriority(
-		from:number=0, to:number=this.filters.length, direction:boolean=true
+		from:number=0, to:number=this.filters.length-1, direction:boolean  = true
 	):void{
 
-		console.log('from',from);
-		console.log('to',to);
-		for (let i = from; i <= to; i++) {
+		direction = typeof direction == 'boolean' && direction ? 1 : -1
 
-			const filter = this.filters[i];
+		this.filters.map(filter=>{
+			var priority=filter.priority
 
-			if(direction) {}
-			//
-			// 	filter.priority++
-			// }else{
-			//
-			// 	filter.priority--
-			// }
-		}
+			if (priority >= from && priority <= to) {
+				filter.priority+= (1*direction)
+			}
+
+			return filter
+		})
 	}
 
 	private validateNewPriority(newPriority:number):boolean{

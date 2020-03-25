@@ -266,16 +266,16 @@ otra forma de code block
 	//custom filter for highlight languaje specification
 		converter.addFilter({
 			name:'hightlight-class',
+			priority:3,
 			filter:(text)=>{
 				text=text.replace(/<pre>(.*)/g,'<pre class="$1">')
-				console.log("crash");
 				return text
 			}
 		})
 
 
 		var text=converter.toHtml()
-		console.log(text);
+		// console.log(text);
 
 
 		window.onload=()=>{
