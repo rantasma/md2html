@@ -69,9 +69,9 @@ export const DefaultFilters:Array<Filter>=[
 		priority:10,
 		filter:variables
 	},
-	// {
-	// 	name:'anchors',
-	// 	priority:10,
-	// 	filter:anchors,
-	// }
+	{
+		name:'anchors',
+		priority:11,
+		filter:anchors,
+	}
 ]

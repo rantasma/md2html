@@ -29,6 +29,8 @@ export class Md2Html {
 
 		this.htmlText=this.text
 
+		this.variables.getVariablesFromText(this.htmlText)
+
 		for (let i = 0; i < this.filters.length; i++) {
 
 			this.filters.forEach(filter=>{
