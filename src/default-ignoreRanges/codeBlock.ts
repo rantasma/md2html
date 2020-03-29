@@ -8,18 +8,18 @@ export const codeBlock:RangeMethod={
 			name:'codeblock',
 			ranges:[]
 		}
-
-		var openpatt=new RegExp('<pre.*>','gm')
-		var closepatt=new RegExp('</pre>','gm')
+		var patt=new RegExp('<.*pre.*>','gm')
 
 		var openIndexes=[]
 		var closeIndexes=[]
-		text.replace(openpatt,( match:string, offset:number ) => {
-			openIndexes.push(offset)
-		})
 
-		text.replace(closepatt,( match:string, offset:number ) => {
-			closeIndexes.push(offset)
+		text.replace(patt,( match:string, offset:number ) => {
+			if (match.indexOf('</') >= 0) {
+				closeIndexes.push(offset)
+			}else{
+				openIndexes.push(offset)
+			}
+			return match
 		})
 
 		openIndexes.forEach((openI,index)=>{

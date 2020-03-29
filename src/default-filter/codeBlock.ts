@@ -4,7 +4,7 @@ export const codeBlock=(text:string,ignoreRanges:IgnoreRanges)=>{
 	text=codeBlock_a(text)
 	text=codeBlock_b(text)
 
-	ignoreRanges.setRanges(text)
+	ignoreRanges.update(text)
 
 	// console.log(text.length);
 
@@ -48,7 +48,7 @@ const codeBlock_b=(text:string)=>{
 	var codeBlockIsOpen=false;
 
 	const openPatt=new RegExp('^(\\t|\\s{4})(.+)','m');
-	const closePatt=new RegExp('^$','g');
+	const closePatt=new RegExp('^[^\\s{4,}\\t+]','g');
 	var newText=''
 
 
@@ -58,12 +58,14 @@ const codeBlock_b=(text:string)=>{
 			line='<pre>\n '+line
 			codeBlockIsOpen=true
 		}else if(closePatt.test(line) && codeBlockIsOpen){
-			line="</pre>\n"
+			line.replace('\n','')
+			line='</pre>\n\n'+line
 			codeBlockIsOpen=false
 		}else if(codeBlockIsOpen){
 			line=' '+line
 		}
 		newText+=line+'\n'
 	}
+	console.log(newText);
 	return newText
 }
