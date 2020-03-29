@@ -5,13 +5,16 @@ export class IgnoreRanges {
 	private rangeMetodths:Array<RangeMethod>
 	private ranges:Array<RangeSection>
 
-	constructor(public text:string) {
+	constructor() {
 		this.rangeMetodths=new Array()
+		this.ranges=new Array()
 	}
-
 	getRanges(){
+		return this.ranges
+	}
+	setRanges(text:string){
 		this.rangeMetodths.forEach(method=>{
-			this.ranges.push(method.filter(this.text,this.ranges))
+			this.ranges.push(method.filter(text,this.ranges))
 		})
 	}
 
@@ -35,27 +38,9 @@ export class IgnoreRanges {
 		})
 	}
 
-	update(indexPosition:number,offsetLength:number){
-
-		this.ranges.forEach(section =>{
-			var ranges=section.ranges
-
-			ranges.forEach(range=>{
-
-				for (const key in range) {
-
-					if (range.hasOwnProperty(key)) {
-
-						var value:number = range[key];
-
-						if (value > indexPosition) {
-
-							value+=offsetLength
-						}
-					}
-				}
-			})
-		})
+	update(text:string){
+		this.ranges=new Array()
+		this.setRanges(text)
 	}
 
 	analizeBySection(range:RangeSection,matchPosition:number,matchLength:number){
@@ -66,11 +51,8 @@ export class IgnoreRanges {
 			const range = ranges[u];
 
 			if (matchPosition > range.from && matchPosition+matchLength < range.to) {
-					return false;
-		    }else{
 					return true;
-					break
-			}
+		    }
 		}
 	}
 

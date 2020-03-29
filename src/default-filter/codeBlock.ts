@@ -1,6 +1,13 @@
-export const codeBlock=(text:string)=>{
+import {IgnoreRanges} from '../ignoreRanges/index'
+
+export const codeBlock=(text:string,ignoreRanges:IgnoreRanges)=>{
 	text=codeBlock_a(text)
 	text=codeBlock_b(text)
+
+	ignoreRanges.setRanges(text)
+
+	// console.log(text.length);
+
 	return text
 }
 
@@ -30,6 +37,7 @@ const codeBlock_a=(text:string)=>{
 		}
 		newText+=line+'\n'
 	}
+
 	return newText
 
 }

@@ -9,13 +9,11 @@ export const codeBlock:RangeMethod={
 			ranges:[]
 		}
 
-
-		var openpatt=new RegExp('<pre>','gm')
+		var openpatt=new RegExp('<pre.*>','gm')
 		var closepatt=new RegExp('</pre>','gm')
 
 		var openIndexes=[]
 		var closeIndexes=[]
-
 		text.replace(openpatt,( match:string, offset:number ) => {
 			openIndexes.push(offset)
 		})
@@ -25,7 +23,6 @@ export const codeBlock:RangeMethod={
 		})
 
 		openIndexes.forEach((openI,index)=>{
-
 			result.ranges.push({
 				from:openI,
 				to:closeIndexes[index]

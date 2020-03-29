@@ -17,7 +17,7 @@ export class Md2Html {
 
 	constructor(public text:string) {
 
-		this.ranges=new Ranges(text)
+		this.ranges=new Ranges()
 		this.ranges.addMulti(defaultIgnoreMethods)
 
 		this.variables=new Variables()
@@ -50,6 +50,7 @@ export class Md2Html {
 				}
 			})
 		}
+		console.log(this.ranges.getRanges());
 		return this.htmlText
 	}
 
