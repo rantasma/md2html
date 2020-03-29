@@ -6,14 +6,45 @@
 		<!-- <script src="./timekeeper.js" charset="utf-8"></script> -->
 		<script src="../dist/index.min.js" charset="utf-8"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.css">
+
+		<link rel="stylesheet"
+      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/github.min.css">
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
 	</head>
 	<body style="padding:5em;font-family:sans-serif;" class="markdown-body">
-		<h1 align="center">md2html js</h1>
+		<pre><code class="">
+			var htm='asdasd'
+		</code></pre>
 	</body>
 
 	<script type="text/javascript">
 
 var text=`
+
+ [variable linka]: https://i.ytimg.com/vi/4QJS9LcB66g/maxresdefault.jpg
+
+# Md2html
+
+Md2html y a plain javascript library to convert markdown lenguaje
+to plain and clean html, supporting all basic functionality from the core
+markdown lenguaje and enable you to extends the functionality.
+
+# Basic lenguaje Reference
+
+## Titles
+
+\`\`\`mkdown
+# H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
+\`\`\`
+
+
 # H1
 ## H2
 ### H3
@@ -21,20 +52,50 @@ var text=`
 ##### H5
 ###### H6
 
-Alternative h titles
+### Alternative Titles
 
-esto es un h1
+\`\`\`mkdown
+this is a H1 title
 ====
 
-esto es un h2
+this is a H2 title
+----
+\`\`\`
+
+
+this is a H1 title
+====
+
+this is a H2 title
 ----
 
-Horizontal rule
+
+## Horizontal rule
+
+\`\`\`mkdown
 
 ======
+
 -----
 
-emphasis
+\`\`\`
+
+======
+
+-----
+
+## Emphasis
+
+
+\`\`\`mkdown
+Emphasis, aka italics, with *asterisks* or _underscores_.
+
+Strong emphasis, aka bold, with **asterisks** or __underscores__.
+
+Combined emphasis with **asterisks and _underscores_**.
+
+Strikethrough uses two tildes. ~~Scratch this.~~
+\`\`\`
 
 Emphasis, aka italics, with *asterisks* or _underscores_.
 
@@ -44,54 +105,93 @@ Combined emphasis with **asterisks and _underscores_**.
 
 Strikethrough uses two tildes. ~~Scratch this.~~
 
-----
+## Paragraphs
 
-new paragraph (2 new lines)
 
-estoaa
-aaaes 1n
-solo parrafo
+\`\`\`mkdown
+this is only
+one paragraph.
+do you see it?
 
-esto es un parrafoaa
-diferenteaa
+And this is an other
+different paragraph, separated with
+2 new line characters
+\`\`\`
 
-----
+this is only
+one paragraph.
+do you see it?
 
-Listas
-
-- asdasdasd
-- second import
-- tercer item
-	- embed list
-	- embed list
-		* embed embed list
-		* embed embed list
-		* embed embed list
-
-* item listab
-* item listab
-* item listab
-	- item lista b embed
-	- item lista b embed
-	- item lista b embed
-
-1. item1
-1. item1
-1. item1
-	1. item embed a
-	1. item embed a
-	1. item embed a
-
-1) item ol b
-1) item ol b
-1) item ol b
-	1) embed item ol b
-	1) embed item ol b
-	1) embed item ol b
+And this is an other
+different paragraph, separated with
+2 new line characters
 
 ----
 
-Tables
+## Lists
+
+#### Unordered lists
+
+\`\`\`
+- level 1 item 1
+- level 1 item 2
+- level 1 item 3
+	* level 2 item 4
+	* level 2 item 5
+		- level 3 item 6
+		- level 3 item 7
+		- level 3 item 8
+\`\`\`
+
+- level 1 item 1
+- level 1 item 2
+- level 1 item 3
+	* level 2 item 4
+	* level 2 item 5
+		- level 3 item 6
+		- level 3 item 7
+		- level 3 item 8
+
+#### Ordened Lists
+
+\`\`\`
+1. level 1 item 1
+1. level 1 item 2
+1. level 1 item 3
+	1) level 1 item 4
+	1) level 1 item 5
+	1) level 1 item 6
+\`\`\`
+
+1. level 1 item 1
+1. level 1 item 2
+1. level 1 item 3
+	1) level 1 item 4
+	1) level 1 item 5
+	1) level 1 item 6
+
+#### limits
+
+does not work very well when mixing embeds ordened and unordened listos
+
+
+\`\`\`
+1. level 1 item 1
+1. level 1 item 2
+1. level 1 item 3
+	* level 2 item 4
+	* level 2 item 5
+	* level 2 item 6
+\`\`\`
+
+1. level 1 item 1
+1. level 1 item 2
+1. level 1 item 3
+	* level 2 item 4
+	* level 2 item 5
+	* level 2 item 6
+
+## Tables
 
 | Tables        | Are           | Cool  | otro text |
 |:-------------:|:-------------:| -----:| ----|
@@ -103,16 +203,19 @@ Tables
 
 ----
 
-	Anchors
+## Links
 
 
-[I'm an inline-style link](https://www.google.com)
+\`\`\`
+[I'm link](https://www.google.com)
 
-[I'm an inline-style link](https://www.google.com)
+[I'm link from a variable link][variable link]
+[variable link]: https://i.ytimg.com/vi/4QJS9LcB66g/maxresdefault.jpg
+\`\`\`
 
-[I'm an inline-style link](https://www.google.com)
+[I'm link](https://www.google.com)
 
-[I'm an inline-style link](https://www.google.com)
+[I'm link][variable link]
 
 ----
 
@@ -149,21 +252,45 @@ otra forma de code block
 
 ![una imagen](https://i.ytimg.com/vi/4QJS9LcB66g/maxresdefault.jpg)
 
-![imagen con link variable][vara]
+![imagen con link variable][variable link]
 
-[linkd e variable][vara]
+[linkd e variable][variable link]
 
 
-[vara]: https://i.ytimg.com/vi/4QJS9LcB66g/maxresdefault.jpg
+[variable link]: https://i.ytimg.com/vi/4QJS9LcB66g/maxresdefault.jpg
 `
 	</script>
 
 	<script type="text/javascript">
-		var mdtext=md2html(text)
+
+		var converter=new Md2Html(text)
+
+	//custom filter for highlight languaje specification
+		converter.addFilter({
+			name:'hightlight-class',
+			priority:3,
+			filter:(text)=>{
+				text=text.replace(/<pre>(.*)/g,'<pre class="$1">')
+				return text
+			}
+		})
+
+
+
+		var text=converter.toHtml()
+		// console.log(text);
+
 
 		window.onload=()=>{
-			document.querySelector('body').innerHTML+=mdtext
+			document.querySelector('body').innerHTML+=text
+
+			//enable hightlight
+			  document.querySelectorAll('pre').forEach((block) => {
+			    hljs.highlightBlock(block);
+			  });
 		}
+
+
 
 	</script>
 
