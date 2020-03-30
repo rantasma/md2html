@@ -8,16 +8,17 @@ import {table} from './tables/index'
 import {anchors} from './anchor'
 import {paragraph} from './paragraph'
 import {inlineCode} from './inlineCode'
-import {codeBlock} from './codeBlock'
+import {codeBlock_a} from './codeBlock_a'
+import {codeBlock_b} from './codeBlock_b'
 import {images} from './images'
 import {blockquote} from './blockquote'
 import {variables} from './variables'
 
 export const DefaultFilters:Array<Filter>=[
 	{
-		name:'codeBlocks',
+		name:'codeBlocks_a',
 		priority:0,
-		filter:codeBlock,
+		filter:codeBlock_a,
 	},
 	{
 		name:'tables',
@@ -35,43 +36,48 @@ export const DefaultFilters:Array<Filter>=[
 		filter:list
 	},
 	{
-		name:'horizontalLine',
+		name:'codeBlocks_b',
 		priority:4,
+		filter:codeBlock_b,
+	},
+	{
+		name:'horizontalLine',
+		priority:5,
 		filter:hr
 	},
 	{
 		name:'titles',
-		priority:5,
+		priority:6,
 		filter:H
 	},
 	{
 		name:'paragraphs',
-		priority:6,
+		priority:7,
 		filter:paragraph
 	},
 	{
 		name:'inlineCode',
-		priority:7,
+		priority:8,
 		filter:inlineCode
 	},
 	{
 		name:'emphasis',
-		priority:8,
+		priority:9,
 		filter:emphasis
 	},
 	{
 		name:'images',
-		priority:9,
+		priority:10,
 		filter:images,
 	},
 	{
 		name:'variables',
-		priority:10,
+		priority:11,
 		filter:variables
 	},
 	{
 		name:'anchors',
-		priority:11,
+		priority:12,
 		filter:anchors,
 	}
 ]
