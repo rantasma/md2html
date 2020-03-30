@@ -45,7 +45,6 @@ var emphasisBase=(text:string,ignoreRanges:IgnoreRanges,patt:string,type:string)
 
 	return text.replace(pattern,(match,p1,p2,p3,offset)=>{
 		if (ignoreRanges.analizeAll(offset,match.length).length <= 0) {
-		console.log(match);
 			return `${p1} <${type}>${p2}</${type}> ${p3}`
 		}else{
 			return match

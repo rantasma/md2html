@@ -17,7 +17,7 @@ export const blockquote=(text:string)=>{
 
 		}else if( line=='' && tagIsOpen){
 
-			line= `\n</blockquote>`
+			line= `\n</blockquote>\n`
 			tagIsOpen=false
 
 		}else if(tagIsOpen && line != ''){

@@ -23,6 +23,7 @@ export const codeBlock_a=(text:string,ignoreRanges:IgnoreRanges)=>{
 		}else if(codeBlockIsOpen){
 			line=line.replace(/</g,'&lt;')
 			line=line.replace(/>/g,'&gt;')
+			line=line.replace(/\\`/g,'`')
 			line=' '+line
 		}
 		newText+=line+'\n'
