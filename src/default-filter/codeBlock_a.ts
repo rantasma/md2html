@@ -15,12 +15,14 @@ export const codeBlock_a=(text:string,ignoreRanges:IgnoreRanges)=>{
 
 			line=line.replace(openPatt,'<pre>$1')
 			codeBlockIsOpen=true
-		}else if(closePatt.test(line)){
+		}else if(codeBlockIsOpen && closePatt.test(line)){
 
 			line=line.replace(openPatt,'</pre>$1')
 			codeBlockIsOpen=false
 
 		}else if(codeBlockIsOpen){
+			line=line.replace(/</g,'&lt;')
+			line=line.replace(/>/g,'&gt;')
 			line=' '+line
 		}
 		newText+=line+'\n'

@@ -1,32 +1,54 @@
-export const emphasis=(text:string)=>{
+import {IgnoreRanges} from '../ignoreRanges/index'
 
-	var bold_a=text.replace(/(<p>.*)\*{2}(\S.*\S)\*{2}/g,'$1 <b>$2</b> ')
-	var bold_b=bold_a.replace(/(<p>.*)_{2}(\S.*\S)_{2}/g,' $1 <b>$2</b> ')
+export const emphasis=(text:string,ignoreRanges:IgnoreRanges)=>{
+	ignoreRanges.update(text)
 
-	text=bold_b
+	//bold
+	text=emphasisBase(text,ignoreRanges,
+		'(.*)\\*{2}(\\S.*\\S)\\*{2}(.*)',
+		'b'
+	)
+	ignoreRanges.update(text)
 
+	text=emphasisBase(text,ignoreRanges,
+		'(.*)_{2}(\\S.*\\S)_{2}(.*)',
+		'b'
+	)
+	ignoreRanges.update(text)
 
-	var italica_a=text.replace(/(<p>.*)[^\*]\*(\S.*\S)\*[^\*]/g,' $1 <em>$2</em> ')
-	var italica_b=italica_a.replace(/(<p>.*)[^_]_(\S.*\S)_/g,' $1 <em>$2</em> ')
+	//italica
+	text=emphasisBase(text,ignoreRanges,
+		'(.*[^\\*])\\*(\\S.*\\S)\\*([^\\*].*)',
+		'em'
+	)
+	ignoreRanges.update(text)
 
-	text=italica_b
+	text=emphasisBase(text,ignoreRanges,
+		'(.*[^_])_(\\S.*\\S)_([^_].*)',
+		'em'
+	)
+	ignoreRanges.update(text)
 
-	var scratch=text.replace(/(<p>.*)~{2}(\S.*\S)~{2}/g,'$1 <del>$2</del>')
-	text=scratch
+	text=emphasisBase(text,ignoreRanges,
+		'(.*)~{2}(\\S.*\\S)~{2}(.*)',
+		'del'
+	)
+	ignoreRanges.update(text)
+
 
 	return text
 }
 
+var emphasisBase=(text:string,ignoreRanges:IgnoreRanges,patt:string,type:string)=>{
 
-// const emphasisP=()=>{
-// 	var splitData=text.split('\n')
-// 	var pPatt=new RegExp('(<p>.*)')
-// 	for (let i = 0; i < splitData.length; i++) {
-// 		const line = splitData[i];
-//
-// 		if () {
-//
-// 		}
-//
-// 	}
-// }
+	var pattern = new RegExp(patt,'g')
+
+	return text.replace(pattern,(match,p1,p2,p3,offset)=>{
+		if (ignoreRanges.analizeAll(offset,match.length).length <= 0) {
+		console.log(match);
+			return `${p1} <${type}>${p2}</${type}> ${p3}`
+		}else{
+			return match
+		}
+	})
+}
