@@ -2,7 +2,7 @@ import {IgnoreRanges} from '../ignoreRanges/index'
 
 export const codeBlock=(text:string,ignoreRanges:IgnoreRanges)=>{
 	text=codeBlock_a(text)
-	text=codeBlock_b(text)
+	// text=codeBlock_b(text)
 
 	ignoreRanges.update(text)
 
@@ -66,6 +66,5 @@ const codeBlock_b=(text:string)=>{
 		}
 		newText+=line+'\n'
 	}
-	console.log(newText);
 	return newText
 }
