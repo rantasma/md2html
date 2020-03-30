@@ -26,6 +26,6 @@ export const open=(text)=>{
 
 export const close=(text:string)=>{
 	var patt=new RegExp('(\\|.*\\|)\n{2}','g')
-	text=text.replace(patt,`$1\n</tbody>\n</table>\n`)
+	text=text.replace(patt,`$1\n</tbody>\n</table>\n\n`)
 	return text
 }

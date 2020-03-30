@@ -1,19 +1,19 @@
 import {RangeMethod,RangeSection} from '../ignoreRanges/interfaces'
 
-export const codeBlock:RangeMethod={
-	name:'codeblock',
+export const list:RangeMethod={
+	name:'list',
 	filter:function(text:string,ranges:Array<RangeSection>):RangeSection{
 
 		var result:RangeSection={
-			name:'codeblock',
+			name:'lists',
 			ranges:[]
 		}
-		var patt=new RegExp('<.*pre.*>','gm')
 
-		var openIndexes=[]
-		var closeIndexes=[]
+		var openIndexes:any=[]
+		var closeIndexes:any=[]
 
-		text.replace(patt,( match:string, offset:number ) => {
+		var patt=new RegExp('<(.*)[uo]l.*>')
+		text.replace(patt,(match,p1,offset)=>{
 			if (match.indexOf('</') >= 0) {
 				closeIndexes.push(offset)
 			}else{

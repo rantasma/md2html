@@ -14,9 +14,6 @@
 
 	</head>
 	<body style="padding:5em;font-family:sans-serif;" class="markdown-body">
-		<pre><code class="">
-			var htm='asdasd'
-		</code></pre>
 	</body>
 
 	<script type="text/javascript">
@@ -132,7 +129,7 @@ different paragraph, separated with
 
 #### Unordered lists
 
-\`\`\`
+\`\`\`markdown
 - level 1 item 1
 - level 1 item 2
 - level 1 item 3
@@ -154,7 +151,7 @@ different paragraph, separated with
 
 #### Ordened Lists
 
-\`\`\`
+\`\`\`markdown
 1. level 1 item 1
 1. level 1 item 2
 1. level 1 item 3
@@ -163,19 +160,21 @@ different paragraph, separated with
 	1) level 1 item 6
 \`\`\`
 
-1. level 1 item 1
-1. level 1 item 2
-1. level 1 item 3
-	1) level 1 item 4
-	1) level 1 item 5
-	1) level 1 item 6
 
-#### limits
-
-does not work very well when mixing embeds ordened and unordened listos
+1) level 1 item 1
+1) level 1 item 2
+1) level 1 item 3
+	1. level 2 item 4
+	1. level 2 item 5
+	1. level 2 item 6
 
 
-\`\`\`
+### limits
+
+does not work very well when mixing embeds ordened and unordened lists
+
+
+\`\`\`markdown
 1. level 1 item 1
 1. level 1 item 2
 1. level 1 item 3
@@ -193,13 +192,23 @@ does not work very well when mixing embeds ordened and unordened listos
 
 ## Tables
 
-| Tables        | Are           | Cool  | otro text |
-|:-------------:|:-------------:| -----:| ----|
-| col 3 is      | right-aligned | $1600 ||
-| col 2 is   |  centered  | $12 | |
-| zebra stripes | are neat | $1 | |
-| zebra stripes2 | re neat2d| $12a | |
-| col 2 is | centered | $12 | |
+\`\`\`markdown
+
+| Tables        | Are           | Cool  |
+|:-------------:| -------------:|:----- |
+| col 1 is      | centered      | $1600 |
+| col 2 is      | right         | $12   |
+| col 3 is      | left          | $1    |
+
+\`\`\`
+
+
+| Tables        | Are           | Cool  |
+|:-------------:| -------------:|:----- |
+| col 1 is      | centered      | $1600 |
+| col 2 is      | right         | $12   |
+| col 3 is      | left          | $1    |
+
 
 ----
 
@@ -210,37 +219,75 @@ does not work very well when mixing embeds ordened and unordened listos
 [I'm link](https://www.google.com)
 
 [I'm link from a variable link][variable link]
+
 [variable link]: https://i.ytimg.com/vi/4QJS9LcB66g/maxresdefault.jpg
 \`\`\`
 
 [I'm link](https://www.google.com)
 
-[I'm link][variable link]
+[I'm link from a variable link][variable link]
+
 
 ----
 
-Code
+## Code
 
 inline code \`esto es un codigo\`
 
-\`\`\`
+\`\`\`plain
+\\\`\\\`\\\`
 # code block
 print '3 backticks or'
 print 'indent 4 spaces'
+\\\`\\\`\\\`
+\`\`\`
+
+\`\`\`plain
+# code block
+print '3 backticks or'
+print 'indent 4 spaces'
+\`\`\`
+
+otra forma de code block (tab al inicio de la linea)
+
+\`\`\`markdown
+
+....estoa es otro
+....bloque de codigo
+....veamos si fuunciona
 
 \`\`\`
 
-otra forma de code block
-
+\`\`\`plain
 	estoa es otro
 	bloque de codigo
-		veamos si fuunciona
+	veamos si fuunciona
+\`\`\`
 
 ----
 
-<div><p> **rrough html test** </p></div>
+## write plain html and it still works
+plus! you can combine the markdown within
+
+\`\`\`
+<div>
+	<p> **rrough** html test </p>
+</div>
+\`\`\`
+
+<div><p> **rrough** html test </p></div>
 
 ----
+## blockquote
+
+\`\`\`markdown
+> blockoute
+> paragraph
+>
+> esto es otro
+> parrafo
+
+\`\`\`
 
 > blockoute
 > paragraph
@@ -250,14 +297,32 @@ otra forma de code block
 
 ----
 
-![una imagen](https://i.ytimg.com/vi/4QJS9LcB66g/maxresdefault.jpg)
+## images
 
-![imagen con link variable][variable link]
+\`\`\`markdown
 
-[linkd e variable][variable link]
+![una imagen](https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Markdown-mark-solid.svg/1280px-Markdown-mark-solid.svg.png)
+
+o usa una variable!
+
+![otra imagen desde variable](imageLink)
+
+[imageLink]: http://mikemclin.net/mmwp/wp-content/uploads/2013/03/markdown-syntax-language.png
+
+or set a width in pixels to the image
+![otra imagen desde variable](imageLink)150
+
+\`\`\`
+
+![una imagen](https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Markdown-mark-solid.svg/1280px-Markdown-mark-solid.svg.png)200
+
+![otra imagen desde variable](imageLink)200
+
+![otra imagen desde variable](imageLink)150
+
+[imageLink]: http://mikemclin.net/mmwp/wp-content/uploads/2013/03/markdown-syntax-language.png
 
 
-[variable link]: https://i.ytimg.com/vi/4QJS9LcB66g/maxresdefault.jpg
 `
 	</script>
 
@@ -268,7 +333,6 @@ otra forma de code block
 	//custom filter for highlight languaje specification
 		converter.addFilter({
 			name:'hightlight-class',
-			priority:3,
 			filter:(text)=>{
 				text=text.replace(/<pre>(.*)/g,'<pre class="$1">')
 				return text
