@@ -18,7 +18,7 @@ module.exports = {
 		path: destDir, // www/js
 		// libraryTarget: 'system'
 	},
-	//devtool:'source-map',
+	devtool:'source-map',
 	plugins: [
     	new CleanWebpackPlugin(),
 	]

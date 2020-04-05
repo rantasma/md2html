@@ -5,9 +5,357 @@
 		<title>md2html js</title>
 		<!-- <script src="./timekeeper.js" charset="utf-8"></script> -->
 		<script src="../dist/index.min.js" charset="utf-8"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.css">
+
+		<link rel="stylesheet"
+      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/github.min.css">
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
 	</head>
-	<body style="padding:5em;font-family:sans-serif;">
-		<h1 align="center">md2html js</h1>
+	<body style="padding:5em;font-family:sans-serif;" class="markdown-body">
 	</body>
+
+	<script type="text/javascript">
+
+var text=`
+
+ [variable linka]: https://i.ytimg.com/vi/4QJS9LcB66g/maxresdefault.jpg
+
+# Md2html
+
+Md2html y a plain javascript library to convert markdown lenguaje
+to plain and clean html, supporting all basic functionality from the core
+markdown lenguaje and enable you to extends the functionality.
+
+# Basic lenguaje Reference
+
+## Titles
+
+\`\`\`mkdown
+# H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
+\`\`\`
+
+
+# H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
+
+### Alternative Titles
+
+\`\`\`mkdown
+this is a H1 title
+====
+
+this is a H2 title
+----
+\`\`\`
+
+
+this is a H1 title
+====
+
+this is a H2 title
+----
+
+
+## Horizontal rule
+
+\`\`\`mkdown
+
+======
+
+-----
+
+\`\`\`
+
+======
+
+-----
+
+## Emphasis
+
+
+\`\`\`mkdown
+Emphasis, aka italics, with *asterisks* or _underscores_.
+
+Strong emphasis, aka bold, with **asterisks** or __underscores__.
+
+Combined emphasis with **asterisks and _underscores_**.
+
+Strikethrough uses two tildes. ~~Scratch this.~~
+\`\`\`
+
+Emphasis, aka italics, with *asterisks* or _underscores_.
+
+Strong emphasis, aka bold, with **asterisks** or __underscores__.
+
+Combined emphasis with **asterisks and _underscores_**.
+
+Strikethrough uses two tildes. ~~Scratch this.~~
+
+## Paragraphs
+
+
+\`\`\`mkdown
+this is only
+one paragraph.
+do you see it?
+
+And this is an other
+different paragraph, separated with
+2 new line characters
+\`\`\`
+
+this is only
+one paragraph.
+do you see it?
+
+And this is an other
+different paragraph, separated with
+2 new line characters
+
+----
+
+## Lists
+
+#### Unordered lists
+
+\`\`\`markdown
+- level 1 item 1
+- level 1 item 2
+- level 1 item 3
+	* level 2 item 4
+	* level 2 item 5
+		- level 3 item 6
+		- level 3 item 7
+		- level 3 item 8
+\`\`\`
+
+- level 1 item 1
+- level 1 item 2
+- level 1 item 3
+	* level 2 item 4
+	* level 2 item 5
+		- level 3 item 6
+		- level 3 item 7
+		- level 3 item 8
+
+#### Ordened Lists
+
+\`\`\`markdown
+1. level 1 item 1
+1. level 1 item 2
+1. level 1 item 3
+	1) level 1 item 4
+	1) level 1 item 5
+	1) level 1 item 6
+\`\`\`
+
+
+1) level 1 item 1
+1) level 1 item 2
+1) level 1 item 3
+	1. level 2 item 4
+	1. level 2 item 5
+	1. level 2 item 6
+
+
+### limits
+
+does not work very well when mixing embeds ordened and unordened lists
+
+
+\`\`\`markdown
+1. level 1 item 1
+1. level 1 item 2
+1. level 1 item 3
+	* level 2 item 4
+	* level 2 item 5
+	* level 2 item 6
+\`\`\`
+
+1. level 1 item 1
+1. level 1 item 2
+1. level 1 item 3
+	* level 2 item 4
+	* level 2 item 5
+	* level 2 item 6
+
+## Tables
+
+\`\`\`markdown
+
+| Tables        | Are           | Cool  |
+|:-------------:| -------------:|:----- |
+| col 1 is      | centered      | $1600 |
+| col 2 is      | right         | $12   |
+| col 3 is      | left          | $1    |
+
+\`\`\`
+
+
+| Tables        | Are           | Cool  |
+|:-------------:| -------------:|:----- |
+| col 1 is      | centered      | $1600 |
+| col 2 is      | right         | $12   |
+| col 3 is      | left          | $1    |
+
+
+----
+
+## Links
+
+
+\`\`\`
+[I'm link](https://www.google.com)
+
+[I'm link from a variable link][variable link]
+
+[variable link]: https://i.ytimg.com/vi/4QJS9LcB66g/maxresdefault.jpg
+\`\`\`
+
+[I'm link](https://www.google.com)
+
+[I'm link from a variable link][variable link]
+
+
+----
+
+## Code
+
+inline code \`esto es un codigo\`
+
+\`\`\`plain
+\\\`\\\`\\\`
+# code block
+print '3 backticks or'
+print 'indent 4 spaces'
+\\\`\\\`\\\`
+\`\`\`
+
+\`\`\`plain
+# code block
+print '3 backticks or'
+print 'indent 4 spaces'
+\`\`\`
+
+otra forma de code block (tab al inicio de la linea)
+
+\`\`\`markdown
+
+....estoa es otro
+....bloque de codigo
+....veamos si fuunciona
+
+\`\`\`
+
+\`\`\`plain
+	estoa es otro
+	bloque de codigo
+	veamos si fuunciona
+\`\`\`
+
+----
+
+## write plain html and it still works
+plus! you can combine the markdown within
+
+\`\`\`
+<div>
+	<p> **rrough** html test </p>
+</div>
+\`\`\`
+
+<div><p> **rrough** html test </p></div>
+
+----
+## blockquote
+
+\`\`\`markdown
+> blockoute
+> paragraph
+>
+> esto es otro
+> parrafo
+
+\`\`\`
+
+> blockoute
+> paragraph
+>
+> esto es otro
+> parrafo
+
+----
+
+## images
+
+\`\`\`markdown
+
+![una imagen](https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Markdown-mark-solid.svg/1280px-Markdown-mark-solid.svg.png)
+
+o usa una variable!
+
+![otra imagen desde variable](imageLink)
+
+[imageLink]: http://mikemclin.net/mmwp/wp-content/uploads/2013/03/markdown-syntax-language.png
+
+or set a width in pixels to the image
+![otra imagen desde variable](imageLink)150
+
+\`\`\`
+
+![una imagen](https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Markdown-mark-solid.svg/1280px-Markdown-mark-solid.svg.png)200
+
+![otra imagen desde variable](imageLink)200
+
+![otra imagen desde variable](imageLink)150
+
+[imageLink]: http://mikemclin.net/mmwp/wp-content/uploads/2013/03/markdown-syntax-language.png
+
+
+`
+	</script>
+
+	<script type="text/javascript">
+
+		var converter=new Md2Html(text)
+
+	//custom filter for highlight languaje specification
+		converter.addFilter({
+			name:'hightlight-class',
+			filter:(text)=>{
+				text=text.replace(/<pre>(.*)/g,'<pre class="$1">')
+				return text
+			}
+		})
+
+
+
+		var text=converter.toHtml()
+		// console.log(text);
+
+
+		window.onload=()=>{
+			document.querySelector('body').innerHTML+=text
+
+			//enable hightlight
+			  document.querySelectorAll('pre').forEach((block) => {
+			    hljs.highlightBlock(block);
+			  });
+		}
+
+
+
+	</script>
 
 </html>
